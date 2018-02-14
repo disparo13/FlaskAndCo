@@ -7,5 +7,29 @@ class Student:
     def average(self):
         return sum(self.marks) / len(self.marks)
 
-    def friend(self, friend_name):
-        pass
+    @classmethod
+    def friend(cls, origin, friend_name, salary): # here's we're making an object creation with a type origin as a calling class was
+        return cls(friend_name, origin.school, salary) # 'origin' keyword is describing the origin calling class
+
+# anna = Student("Anna", "Oxford")
+# friend = anna.friend("Greg")
+
+# print(friend.name)
+# print(friend.school)
+
+##
+
+class WorkingStudent(Student):
+    def __init__(self, name, school, salary):
+        super().__init__(name, school)
+        self.salary = salary
+
+anna = WorkingStudent("Anna", "Oxford", 20.00)
+print(anna.salary)
+
+# friend = anna.friend("Greg") - an old calling
+friend = WorkingStudent.friend(anna, "Greg", 35.00)
+print(friend.name)
+print(friend.school)
+print(friend.salary)
+
