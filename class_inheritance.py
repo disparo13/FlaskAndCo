@@ -8,8 +8,8 @@ class Student:
         return sum(self.marks) / len(self.marks)
 
     @classmethod
-    def friend(cls, origin, friend_name, salary): # here's we're making an object creation with a type origin as a calling class was
-        return cls(friend_name, origin.school, salary) # 'origin' keyword is describing the origin calling class
+    def friend(cls, origin, friend_name, *args): # here's we're making an object creation with a type origin as a calling class was
+        return cls(friend_name, origin.school, *args) # 'origin' keyword is describing the origin calling class
 
 # anna = Student("Anna", "Oxford")
 # friend = anna.friend("Greg")
